@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import Logo from '../../components/assets/logo/Logo';
+import { Layout } from '../../components/layout/Layout';
+import { NextPageWithLayout } from '../page';
 
 type FormValues = {
   firstName: string;
@@ -9,7 +11,7 @@ type FormValues = {
   userName: string;
   password: string;
 };
-export default function SingUpPage() {
+export const SingUpPage: NextPageWithLayout = () => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
       firstName: '',
@@ -97,4 +99,10 @@ export default function SingUpPage() {
       </div>
     </div>
   );
-}
+};
+
+SingUpPage.getLayout = (page) => {
+  return <Layout>{page}</Layout>;
+};
+
+export default SingUpPage;

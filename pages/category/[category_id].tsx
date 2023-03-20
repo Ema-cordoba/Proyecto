@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { Layout } from '../../components/layout/Layout';
 import { NextPageWithLayout } from '../page';
+
 export const CategoryPage: NextPageWithLayout = () => {
   const router = useRouter();
   const { category_id } = router.query;
